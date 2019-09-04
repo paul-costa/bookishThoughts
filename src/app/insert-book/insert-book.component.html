@@ -1,0 +1,147 @@
+
+            
+            
+<form class="bookInsertForm" [formGroup]="form" (submit)="onSubmitBook()">
+    <div class="container mt-5">
+        <div class="row text-center">
+            <div class="col-6">
+                <mat-form-field>
+                    <input matInput placeholder="ISBN" formControlName="ISBN" type="number" required>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field>
+                    <input matInput placeholder="Publisher" formControlName="publisher"  required>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row text-center my-3">
+            <div class="col-6">
+                <mat-form-field>
+                    <input matInput placeholder="Author" formControlName="author" required>
+                </mat-form-field>
+            </div>
+            <div class="col-3">
+                <mat-form-field>
+                    <input matInput placeholder="Title of series" formControlName="titleOfSeries" >
+                </mat-form-field>
+            </div>
+            <div class="col-3">
+                <mat-form-field>
+                    <mat-label>Number in Series</mat-label>
+                    <mat-select matNativeControl required formControlName="noInSeries" >
+                        <mat-option 
+                            *ngFor="let number of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"
+                            [value]="number"
+                        >{{number}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mt-5 my-3">
+            <div class="offset-1 col-5 text-center">
+                <mat-form-field>
+                    <input matInput placeholder="Title" formControlName="title"  required> 
+                </mat-form-field>
+            </div>
+
+            <div class="col-5">
+                <mat-form-field>
+                    <mat-label>Select Genre</mat-label>
+                    <mat-select matNativeControl formControlName="genre"  required>
+                        <mat-option *ngFor="let genre of genres"
+                            [value]="genre"
+                        >{{genre}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row my-3">
+            <div class="col-6">
+                <mat-form-field>
+                    <textarea matInput placeholder="Blurp Text" rows="12" formControlName="blurbText" ></textarea>
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-6 my-auto textInForm">Amazon Link:</div>
+                    <div class="col-6">
+                        <mat-form-field>
+                            <input matInput formControlName="amazonLink" >
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 my-auto textInForm">Goodreads Link:</div>
+                    <div class="col-6">
+                        <mat-form-field>
+                            <input matInput formControlName="goodreadsLink" >
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 my-auto textInForm">Audible Link:</div>
+                    <div class="col-6">
+                        <mat-form-field>
+                            <input matInput formControlName="audibleLink" >
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 my-auto textInForm" textInForm>Link to Book Cover:</div>
+                    <div class="col-6">
+                        <mat-form-field>
+                            <input matInput formControlName="linkBookCover" >
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row my-3">
+            <div class="col-12 text-center textInForm">
+                <h6>Miscellaneous Links</h6>
+            </div>
+
+            <div class="offset-4 col-4" *ngIf="addedMiscLinks.length!=0" style="margin-bottom: 0">
+                <ul >
+                    <li *ngFor="let link of addedMiscLinks">{{link}}</li>
+                </ul>
+            </div>
+            
+            <div class="offset-4 col-4">
+                <mat-form-field>
+                    <input matInput [(ngModel)]="miscLinkAdded" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <button 
+                    type="button" 
+                    mat-raised-button
+                    (click)="onAddMiscLink()"                                            
+                    [disabled]="miscLinkAdded=='' ? true : false"
+                >Add</button>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 text-right">
+                <button class="mat-raised-button" type="submit">Submit to Database</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,36 @@
+mat-form-field {
+    width: 100%;
+}
+
+.bookInsertForm {
+    background-color: rgb(125, 125, 125);
+    padding: 2em;
+    margin: 3em;
+    border-radius: 0.5em;
+
+    box-shadow: 1px 1px 10px indigo;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden !important;
+    resize: none !important;
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.textInForm {
+    color: rgb(50,50,50);
+}
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+export interface Book {
+    ISBN: number,
+    author: string,
+    publisher: string,
+    title: string,
+    titleOfSeries: string,	
+    noInSeries: number,
+    genre: string,	
+    blurbText: string,	
+    amazonLink: string,	
+    goodreadsLink: string,	
+    audibleLink: string,	
+    linkBookCover: string,	
+    miscLinks: Array<string>,																	
+}
